@@ -1,5 +1,7 @@
 ### Setup Instructions
 
+This project requires Node and NPM to be installed
+
 #### Option 1: Run the Setup Script
 
 1. Open a terminal and navigate to the project directory.
