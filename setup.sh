@@ -22,6 +22,7 @@ echo "Building the web application..."
 cd ../web && npm run build
 
 # Final instructions
-echo "Setup complete. To start the server, navigate to server directory and run the following command:"
-echo "npm start -- -b"
-echo "Then navigate to http://localhost:3000 to access the application."
+echo "========================="
+echo "Navigate to http://localhost:3000 to access the application."
+echo "========================="
+cd ../server && npm start -- -b

@@ -7,7 +7,7 @@
    ```bash
    ./setup.sh
    ```
-3. Follow the on-screen instructions to complete the setup.
+3. View the application on http://localhost:3000
 
 #### Option 2: Manual Setup
 
