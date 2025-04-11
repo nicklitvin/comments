@@ -3,10 +3,15 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
-model User {
-    id  String  @id
+model Comment {
+    id     String   @id @default(uuid())
+    author String
+    text   String
+    date   DateTime @default(now())
+    likes  Int
+    image  String
 }

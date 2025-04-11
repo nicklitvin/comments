@@ -12,13 +12,33 @@ export async function main() {
             type: 'boolean',
             description: 'Use frontend build'
         })
+        .option('import', {
+            alias: 'i',
+            type: 'boolean',
+            description: 'Import comments from comments.json'
+        })
+        .option('delete', {
+            alias: 'd',
+            type: 'boolean',
+            description: 'Delete all data from the database'
+        })
         .help('h')
         .alias('h', 'help')
         .parse()
     
-    new Server({
+    const server = new Server({
         useBuild: Boolean(args.build)
-    })
+    });
+
+    if (args.delete) {
+        await server.deleteAllData();
+        process.exit(0);
+    }
+
+    if (args.import) {
+        await server.importComments();
+        process.exit(0);
+    }
 }
 
 main()
