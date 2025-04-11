@@ -19,9 +19,9 @@ cd server && npm run db && npm start -- -i
 
 # Build the web application
 echo "Building the web application..."
-cd ../web && npm run build && cd ../server
+cd ../web && npm run build
 
 # Final instructions
-echo "Setup complete. To start the server, run the following commands:"
-echo "On Linux: sudo npm start -- -b"
-echo "On Windows in bash: npm start -- -- -b"
+echo "Setup complete. To start the server, navigate to server directory and run the following command:"
+echo "npm start -- -b"
+echo "Then navigate to http://localhost:3000 to access the application."

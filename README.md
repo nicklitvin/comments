@@ -47,13 +47,8 @@
 
 5. **Start the Server**:
    - Navigate back to the `server` directory and run:
-     - On Linux:
-       ```bash
-       sudo npm start -- -b
-       ```
-     - On Windows in Bash:
-       ```bash
-       npm start -- -- -b
+    - ```bash
+       npm start -- -b
        ```
 
-6. The setup is complete. The application should now be running.
+6. The setup is complete. The application should now be running on http://localhost:3000.
