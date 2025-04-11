@@ -18,8 +18,8 @@ export class Server {
     constructor({ useBuild } : { useBuild: boolean }) {
         this.api = new API();
         const app = express();
-        app.listen(process.env.LISTEN_PORT);
-        express.json();
+        app.listen(process.env.WEB_PORT);
+        app.use(express.json());
 
         app.use(cors({
             origin: process.env.WEB_IP,
@@ -27,19 +27,19 @@ export class Server {
             // credentials: true
         }));
 
-        if (useBuild) {
-            app.use(express.static(path.join(__dirname, "../../web/dist")));
-            app.get("*", (req, res) => {
-                res.sendFile(path.join(__dirname, "../../web/dist"));
-            });
-        }
-
         app.get(this.URLS.hi, this.hi.bind(this));
         app.get(this.URLS.comments, this.getComments.bind(this));
         app.post(this.URLS.likeComment, this.likeComment.bind(this));
         app.put(this.URLS.updateComment, this.updateComment.bind(this));
         app.post(this.URLS.createComment, this.createComment.bind(this));
         app.delete(this.URLS.deleteComment, this.deleteComment.bind(this));
+
+        if (useBuild) {
+            app.use(express.static(path.join(__dirname, "../../web/dist")));
+            app.get("*", (req, res) => {
+                res.sendFile(path.join(__dirname, "../../web/dist"));
+            });
+        }
     }
 
     async deleteAllData() {
@@ -90,6 +90,7 @@ export class Server {
             const out = await this.api.likeComment(id, increment);
             return res.status(out.message ? 400 : 200).json(out);
         } catch (err) {
+            console.log(err);
             return res.status(500).json(err);
         }
     }

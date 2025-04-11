@@ -26,7 +26,7 @@ export class API {
             return { message: "Comment not found." };
         }
         const updatedComment = await this.db.likeComment(id, increment);
-        return { data: updatedComment};
+        return { data: updatedComment };
     }
 
     async updateComment(id: string, text: string): Promise<APIOutput<Comment>> {

@@ -8,7 +8,11 @@ export class DB {
     }
 
     async getComments(): Promise<Comment[]> {
-        return await this.prisma.comment.findMany();
+        return await this.prisma.comment.findMany({
+            orderBy: {
+                date: 'desc'
+            }
+        });
     }
 
     async likeComment(id: string, increment: boolean): Promise<Comment> {
