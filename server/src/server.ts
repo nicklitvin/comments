@@ -18,7 +18,7 @@ export class Server {
     constructor({ useBuild } : { useBuild: boolean }) {
         this.api = new API();
         const app = express();
-        app.listen(process.env.WEB_PORT);
+        app.listen(process.env.LISTEN_PORT);
         app.use(express.json());
 
         app.use(cors({

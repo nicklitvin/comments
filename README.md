@@ -1,7 +1,3 @@
-### Description
-
-This is setup for other projects using vite, react, tailwind frontend and node, express, prisma backend all in TS.
-
 ### Setup Instructions
 
 #### Option 1: Run the Setup Script
@@ -55,7 +51,7 @@ This is setup for other projects using vite, react, tailwind frontend and node, 
        ```bash
        sudo npm start -- -b
        ```
-     - On Windows:
+     - On Windows in Bash:
        ```bash
        npm start -- -- -b
        ```

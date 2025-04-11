@@ -24,4 +24,4 @@ cd ../web && npm run build && cd ../server
 # Final instructions
 echo "Setup complete. To start the server, run the following commands:"
 echo "On Linux: sudo npm start -- -b"
-echo "On Windows: sudo npm start -- -- -b"
+echo "On Windows in bash: npm start -- -- -b"
