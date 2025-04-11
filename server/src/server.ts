@@ -108,8 +108,8 @@ export class Server {
 
     async createComment(req: Request, res: Response) {
         try {
-            const { text, image } = req.body;
-            const out = await this.api.createComment(text, image);
+            const { text, author, image } = req.body;
+            const out = await this.api.createComment(author, text, image);
             return res.status(out.message ? 400 : 200).json(out);
         } catch (err) {
             return res.status(500).json(err);

@@ -38,8 +38,8 @@ export class API {
         return { data: updatedComment };
     }
 
-    async createComment(text: string, image: string): Promise<APIOutput<Comment>> {
-        const newComment = await this.db.createComment(text, image);
+    async createComment(author : string, text: string, image: string): Promise<APIOutput<Comment>> {
+        const newComment = await this.db.createComment(author, text, image);
         return { data: newComment };
     }
 

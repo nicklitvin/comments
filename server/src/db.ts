@@ -31,16 +31,15 @@ export class DB {
             where: { id },
             data: {
                 text,
-                author: "Admin",
                 date: new Date()
             }
         });
     }
 
-    async createComment(text: string, image: string): Promise<Comment> {
+    async createComment(author : string, text: string, image: string): Promise<Comment> {
         return await this.prisma.comment.create({
             data: {
-                author: "Admin",
+                author,
                 text,
                 image,
                 date: new Date(),

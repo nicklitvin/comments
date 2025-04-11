@@ -95,7 +95,11 @@ export function Home() {
                     placeholder="Image URL (optional)"
                     className="w-full mb-2"
                 />
-                <Button onClick={addComment} className="self-end">
+                <Button 
+                    onClick={addComment} 
+                    className="self-end" 
+                    disabled={!newCommentText.length}
+                >
                     Publish
                 </Button>
             </div>
