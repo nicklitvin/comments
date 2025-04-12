@@ -46,4 +46,5 @@ export interface Comment {
     likes: number;
     author: string;
     date: string;
+    parent: string;
 }

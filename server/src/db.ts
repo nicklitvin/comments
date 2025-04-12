@@ -10,7 +10,7 @@ export class DB {
     async getComments(): Promise<Comment[]> {
         return await this.prisma.comment.findMany({
             orderBy: {
-                date: 'desc'
+                id: 'asc'
             }
         });
     }
@@ -43,7 +43,8 @@ export class DB {
                 text,
                 image,
                 date: new Date(),
-                likes: 0
+                likes: 0,
+                parent: ""
             }
         });
     }
@@ -61,7 +62,7 @@ export class DB {
         return count > 0;
     }
 
-    async importComments(comments: Array<{ id: string, author: string, text: string, date: string, likes: number, image: string }>): Promise<void> {
+    async importComments(comments: Array<{ id: string, author: string, text: string, date: string, likes: number, image: string, parent: string }>): Promise<void> {
         await Promise.all(
             comments.map(comment =>
                 this.prisma.comment.create({
@@ -71,7 +72,8 @@ export class DB {
                         text: comment.text,
                         date: new Date(comment.date),
                         likes: comment.likes,
-                        image: comment.image
+                        image: comment.image,
+                        parent: comment.parent
                     }
                 })
             )
